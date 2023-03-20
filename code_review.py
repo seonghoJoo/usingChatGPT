@@ -16,7 +16,7 @@ files = output.splitlines()
 java_files = [file for file in files if file.endswith(".java")]
 
 # Review each Java file
-for index, file in java_files:
+for index, file in (java_files, start=1):
     print(f"Code Review {index} of {len(java_files)}\n")
     print(f"File: {file}\n")
     print("=" * 80)
