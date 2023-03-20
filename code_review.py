@@ -10,7 +10,7 @@ openai.api_key = os.environ["OPENAI_API_KEY"]
 subprocess.run(["git", "fetch", "origin", "main"])
 
 # Get the commit hash of the last remote commit
-remote_commit = subprocess.check_output(["git", "rev-parse", "origin/main"]).decode("utf-8").strip()
+remote_commit = subprocess.check_output(["git", "rev-parse", "origin/master"]).decode("utf-8").strip()
 
 # Get the commit hash of the current local commit
 local_commit = subprocess.check_output(["git", "rev-parse", "HEAD"]).decode("utf-8").strip()
