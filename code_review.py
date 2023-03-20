@@ -6,11 +6,14 @@ import re
 openai.api_key = os.getenv("OPENAI_API_KEY")
 print("======================start===============")
 
-# Get the list of changed files
-output = subprocess.check_output(["git", "diff", "--diff-filter=M", "--name-only", "HEAD"]).decode("utf-8")
-print(output)
+try:
+    output = subprocess.check_output(["git", "diff", "--diff-filter=M" ,"--name-only", "HEAD^", "HEAD"]).decode("utf-8")
+except subprocess.CalledProcessError:
+    output = subprocess.check_output(["git", "show", "--pretty=format:", "--name-only", "HEAD"]).decode("utf-8")
 
 file_paths = output.split("\n")
+print("output")
+print(output)
 
 # Filter the list to include only .java files
 java_files = [path for path in file_paths if path.endswith(".java")]
