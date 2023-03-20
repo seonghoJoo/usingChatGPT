@@ -7,7 +7,7 @@ openai.api_key = os.environ["OPENAI_API_KEY"]
 
 
 # Fetch the remote branch
-subprocess.run(["git", "fetch", "origin", "main"])
+subprocess.run(["git", "fetch", "origin", "master"])
 
 # Get the commit hash of the last remote commit
 remote_commit = subprocess.check_output(["git", "rev-parse", "origin/master"]).decode("utf-8").strip()
