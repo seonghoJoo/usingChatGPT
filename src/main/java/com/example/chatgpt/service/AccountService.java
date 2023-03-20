@@ -59,6 +59,7 @@ public class AccountService {
      *  account_user 에서 user 찾기 없다면 예외발생
      * */
     private AccountUser getAccountUser(Long userId){
+
         return accountUserRepository.findById(userId).orElseThrow(() -> new AccountException(ErrorCode.USER_NOT_FOUND));
     }
     /**
