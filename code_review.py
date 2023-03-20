@@ -12,6 +12,8 @@ except subprocess.CalledProcessError as e:
     print("Error while getting the list of changed files:", e)
     exit(1)
 
+print(output)
+
 file_paths = output.split("\n")
 
 # Filter the list to include only .java files
