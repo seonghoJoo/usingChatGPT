@@ -27,9 +27,9 @@ for code_file in code_files:
     prompt = f"Please review the following Java code in '{code_file['path']}':\n\n{code_file['content']}\n\nAnd provide feedback on clean code, run-time exceptions, recommended values, and method names."
 
     response = openai.Completion.create(
-        engine="text-davinci-003",  # You can replace this with the GPT-4 engine when it becomes available
+        engine="text-davinci-003",
         prompt=prompt,
-        max_tokens=500,
+        max_tokens=150,
         n=1,
         stop=None,
         temperature=0.5,
