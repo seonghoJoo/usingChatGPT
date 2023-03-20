@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
+
     @ExceptionHandler(AccountException.class)
     public ErrorResponse handleAccountException(AccountException e) {
         log.error("{} is occurred.", e.getErrorCode());
