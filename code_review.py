@@ -5,11 +5,19 @@ import openai
 # Set your OpenAI API key
 openai.api_key = os.environ["OPENAI_API_KEY"]
 
+
+# Fetch the remote branch
+subprocess.run(["git", "fetch", "origin", "main"])
+
 # Get the commit hash of the last remote commit
-remote_commit = subprocess.check_output(["git", "rev-parse", "origin/master"]).decode("utf-8").strip()
+remote_commit = subprocess.check_output(["git", "rev-parse", "origin/main"]).decode("utf-8").strip()
+
+# Get the commit hash of the current local commit
+local_commit = subprocess.check_output(["git", "rev-parse", "HEAD"]).decode("utf-8").strip()
 
 # Get the list of modified files between the remote and the current local commit
-output = subprocess.check_output(["git", "diff", "--diff-filter=M", "--name-only", remote_commit, "HEAD"]).decode("utf-8")
+output = subprocess.check_output(["git", "log", "--name-only", "--pretty=format:", f"{remote_commit}..{local_commit}"]).decode("utf-8")
+print(output)
 files = output.splitlines()
 # Filter Java files
 java_files = [file for file in files if file.endswith(".java")]
