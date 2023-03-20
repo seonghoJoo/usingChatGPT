@@ -34,18 +34,9 @@ public class AccountController {
     public DeleteAccount.Response deleteAccount(
             @RequestBody @Valid DeleteAccount.Request request
     ) {
-        accountService.deleteAccount(
-                request.getUserId(),
-                request.getAccountNumber()
-        );
-        accountService.deleteAccount(
-                request.getUserId(),
-                request.getAccountNumber()
-        );
-        accountService.deleteAccount(
-                request.getUserId(),
-                request.getAccountNumber()
-        );
+        for(int i=0;i<100000;i++){
+            System.out.println("just log");
+        }
         return DeleteAccount.Response.from(
                 accountService.deleteAccount(
                         request.getUserId(),
