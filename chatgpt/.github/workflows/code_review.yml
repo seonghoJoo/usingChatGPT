@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - master
-      - your-other-branch # Add other branches if needed
+      - dev
 
 jobs:
   code_review:
