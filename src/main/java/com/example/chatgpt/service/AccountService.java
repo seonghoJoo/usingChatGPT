@@ -60,6 +60,8 @@ public class AccountService {
      * */
     private AccountUser getAccountUser(Long userId){
 
+
+
         return accountUserRepository.findById(userId).orElseThrow(() -> new AccountException(ErrorCode.USER_NOT_FOUND));
     }
     /**
