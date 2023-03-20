@@ -24,6 +24,7 @@ public class AccountController {
             @RequestBody @Valid CreateAccount.Request request
     ) {
 
+
         return CreateAccount.Response.from(
                 accountService.createAccount(
                         request.getUserId(),
