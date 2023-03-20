@@ -38,6 +38,7 @@ public class AccountService {
         // account_user 에서 user 찾기
         AccountUser accountUser = getAccountUser(userId);
 
+
         // account_user 중복된 계좌 3개 초과인지 체크
         validateCreateAccount(accountUser);
 
