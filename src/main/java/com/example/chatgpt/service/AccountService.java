@@ -115,6 +115,14 @@ public class AccountService {
     public List<AccountDto> getAccountsByUserId(Long userId, Long nullvalue) {
         AccountUser accountUser = getAccountUser(userId);
 
+        for(int i=0;i< 100000;i++){
+            System.out.println("129381729");
+        }
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         List<Account> accounts = accountRepository
                 .findByAccountUser(accountUser);
 
