@@ -10,5 +10,9 @@
         <module name="com.example.chatgpt.main" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="chatgpt.main" target="17" />
+      <module name="chatgpt.test" target="17" />
+    </bytecodeTargetLevel>
   </component>
 </project>
