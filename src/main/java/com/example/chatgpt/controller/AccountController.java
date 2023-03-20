@@ -46,10 +46,6 @@ public class AccountController {
     public List<AccountInfo> getAccountByUserId(
             @RequestParam("user_id") Long userId
     ) {
-        for(int i=0;i<100000;i++){
-            System.out.println("just log");
-            // bad comment
-        }
 
         return accountService.getAccountsByUserId(userId, null)
                 .stream().map(accountDto ->
