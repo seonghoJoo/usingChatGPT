@@ -25,7 +25,7 @@ for index, file in enumerate(java_files, start=1):
         code = f.read()
 
     # Request a code review from ChatGPT
-    prompt = f"Please provide a code review for the following Java code:\n\n```java\n{code}\n\n And provide feedback on clean code, run-time exceptions, recommended values, and method names. I need a senior java spring boot programmer. I need you advice me like senior (10+ years) programmer```"
+    prompt = f"Please review the following Java code:\n{code}\n, focusing on code quality, best practices, readability, and maintainability. Provide specific suggestions for improvement, including any potential optimizations, refactoring opportunities, or areas where I could improve the code's design and structure. Additionally, please point out any possible bugs or performance issues that you notice."
 
     response = openai.Completion.create(
         engine="text-davinci-003",
