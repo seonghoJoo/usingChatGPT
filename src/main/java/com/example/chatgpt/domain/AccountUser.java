@@ -11,8 +11,5 @@ import jakarta.persistence.*;
 @Builder
 @Entity
 public class AccountUser extends BaseEntity {
-
-
-
     private String name;
 }
