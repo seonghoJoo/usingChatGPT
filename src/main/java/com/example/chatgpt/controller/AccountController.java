@@ -46,6 +46,8 @@ public class AccountController {
     public List<AccountInfo> getAccountByUserId(
             @RequestParam("user_id") Long userId
     ) {
+
+
         return accountService.getAccountsByUserId(userId, null)
                 .stream().map(accountDto ->
                         AccountInfo.builder()
