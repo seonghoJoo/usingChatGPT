@@ -6,7 +6,7 @@ import openai
 openai.api_key = os.environ["OPENAI_API_KEY"]
 
 # Get the commit hash of the last remote commit
-remote_commit = subprocess.check_output(["git", "rev-parse", "origin/main"]).decode("utf-8").strip()
+remote_commit = subprocess.check_output(["git", "rev-parse", "origin/master"]).decode("utf-8").strip()
 
 # Get the list of modified files between the remote and the current local commit
 output = subprocess.check_output(["git", "diff", "--diff-filter=M", "--name-only", remote_commit, "HEAD"]).decode("utf-8")
