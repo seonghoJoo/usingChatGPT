@@ -6,7 +6,7 @@ import re
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # Get the list of changed files
-output = subprocess.check_output(["git", "diff", "--name-only", "HEAD^", "HEAD"])
+output = subprocess.check_output(["git", "diff", "--name-only", "HEAD~1", "HEAD"])
 file_paths = output.decode("utf-8").split("\n")
 
 # Filter the list to include only .java files
