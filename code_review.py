@@ -1,33 +1,27 @@
-import openai
 import os
 import subprocess
-import re
+import openai
 
-openai.api_key = os.getenv("OPENAI_API_KEY")
-print("======================start===============")
+# Set your OpenAI API key
+openai.api_key = os.environ["OPENAI_API_KEY"]
 
-try:
-    output = subprocess.check_output(["git", "diff", "--diff-filter=M" ,"--name-only", "HEAD~1", "HEAD"]).decode("utf-8")
-except subprocess.CalledProcessError:
-    print("exception 발생")
-    output = subprocess.check_output(["git", "show", "--pretty=format:", "--name-only", "HEAD"]).decode("utf-8")
+# Get the list of modified files in the latest push
+output = subprocess.check_output(["git", "diff", "--diff-filter=M", "--name-only", "HEAD~1", "HEAD"]).decode("utf-8")
+files = output.splitlines()
 
-file_paths = output.split("\n")
-print("output")
-print(output)
+# Filter Java files
+java_files = [file for file in files if file.endswith(".java")]
 
-# Filter the list to include only .java files
-java_files = [path for path in file_paths if path.endswith(".java")]
+# Review each Java file
+for file in java_files:
+    print(f"Code review for {file}:")
 
-# Read the content of each .java file
-code_files = []
-for file_path in java_files:
-    with open(file_path, "r") as file:
-        code_files.append({"path": file_path, "content": file.read()})
+    # Read the file content
+    with open(file, "r") as f:
+        code = f.read()
 
-# Generate code reviews for each .java file
-for code_file in code_files:
-    prompt = f"Please review the following Java code in '{code_file['path']}':\n\n{code_file['content']}\n\nAnd provide feedback on clean code, run-time exceptions, recommended values, and method names."
+    # Request a code review from ChatGPT
+    prompt = f"Please provide a code review for the following Java code:\n\n```java\n{code}\n\n And provide feedback on clean code, run-time exceptions, recommended values, and method names. I need a senior java spring boot programmer. I need you advice me like senior (10+ years) programmer```"
 
     response = openai.Completion.create(
         engine="text-davinci-003",
@@ -38,4 +32,6 @@ for code_file in code_files:
         temperature=0.5,
     )
 
-    print(f"Code review for {code_file['path']}:\n{response.choices[0].text.strip()}\n")
+    # Print the code review
+    print(response.choices[0].text.strip())
+    print("\n" + "-" * 80 + "\n")
