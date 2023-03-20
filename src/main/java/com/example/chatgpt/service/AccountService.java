@@ -34,18 +34,11 @@ public class AccountService {
         // account_user 에서 user 찾기
         AccountUser accountUser = getAccountUser(userId);
 
-
-
-
-
         // account_user 중복된 계좌 3개 초과인지 체크
         validateCreateAccount(accountUser);
 
         // 순차계좌번호 생성
         String createAccountNumber = accountRepository.findFirstByOrderByIdDesc().map(account -> Integer.parseInt(account.getAccountNumber()) + 1 + "").orElse("1000000000");
-
-
-
 
         // 계좌 생성
         return AccountDto.fromEntity(
