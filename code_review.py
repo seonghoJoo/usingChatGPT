@@ -4,14 +4,15 @@ import subprocess
 import re
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
+print("======================start===============")
 
 # Get the list of changed files
 try:
     output = subprocess.check_output(["git", "diff", "--diff-filter=M", "--name-only", "HEAD"]).decode("utf-8")
 except subprocess.CalledProcessError as e:
     print("Error while getting the list of changed files:", e)
-    exit(1)
-
+    exit(1
+)
 print(output)
 
 file_paths = output.split("\n")
