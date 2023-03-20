@@ -14,9 +14,8 @@ print(output)
 files = output.splitlines()
 # Filter Java files
 java_files = [file for file in files if file.endswith(".java")]
-start = 1
 # Review each Java file
-for index, file in (java_files, start):
+for index, file in enumerate(java_files, start=1):
     print(f"Code Review {index} of {len(java_files)}\n")
     print(f"File: {file}\n")
     print("=" * 80)
