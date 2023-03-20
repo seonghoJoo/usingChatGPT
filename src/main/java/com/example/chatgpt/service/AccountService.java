@@ -83,6 +83,7 @@ public class AccountService {
                 .orElseThrow(() -> new AccountException(ErrorCode.ACCOUNT_NOT_FOUND));
 
 
+
         validateDeleteAccount(accountUser, account);
 
         account.setAccountStatus(AccountStatus.UNREGISTERED);
