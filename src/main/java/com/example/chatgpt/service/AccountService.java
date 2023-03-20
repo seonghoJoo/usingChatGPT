@@ -112,7 +112,7 @@ public class AccountService {
 
 
     @Transactional
-    public List<AccountDto> getAccountsByUserId(Long userId) {
+    public List<AccountDto> getAccountsByUserId(Long userId, Long nullvalue) {
         AccountUser accountUser = getAccountUser(userId);
 
         List<Account> accounts = accountRepository

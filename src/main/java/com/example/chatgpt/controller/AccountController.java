@@ -50,11 +50,8 @@ public class AccountController {
             System.out.println("just log");
             // bad comment
         }
-        accountService.getAccountsByUserId(userId);
-        accountService.getAccountsByUserId(userId);
-        accountService.getAccountsByUserId(userId);
 
-        return accountService.getAccountsByUserId(userId)
+        return accountService.getAccountsByUserId(userId, null)
                 .stream().map(accountDto ->
                         AccountInfo.builder()
                         .accountNumber(accountDto.getAccountNumber())
