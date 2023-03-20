@@ -9,15 +9,16 @@ try:
     output = subprocess.check_output(["git", "diff", "--diff-filter=M" ,"--name-only", "HEAD~3", "HEAD"]).decode("utf-8")
 except subprocess.CalledProcessError:
     print("exception 발생")
-    output = subprocess.check_output(["git", "show", "--pretty=format:", "--name-only", "HEAD"]).decode("utf-8")
+    output = subprocess.check_output(["git", "show", "--pretty=format:", "--name-only", "HEAD~3" ,"HEAD"]).decode("utf-8")
 print(output)
 files = output.splitlines()
 # Filter Java files
 java_files = [file for file in files if file.endswith(".java")]
-
 # Review each Java file
-for file in java_files:
-    print(f"Code review for {file}:")
+for index, file in enumerate(java_files, start=1):
+    print(f"Code Review {index} of {len(java_files)}\n")
+    print(f"File: {file}\n")
+    print("=" * 80)
 
     # Read the file content
     with open(file, "r") as f:
