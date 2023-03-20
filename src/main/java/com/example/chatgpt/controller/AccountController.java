@@ -34,10 +34,6 @@ public class AccountController {
     public DeleteAccount.Response deleteAccount(
             @RequestBody @Valid DeleteAccount.Request request
     ) {
-        for(int i=0;i<100000;i++){
-            System.out.println("just log");
-            // bad comment
-        }
         return DeleteAccount.Response.from(
                 accountService.deleteAccount(
                         request.getUserId(),
@@ -50,6 +46,10 @@ public class AccountController {
     public List<AccountInfo> getAccountByUserId(
             @RequestParam("user_id") Long userId
     ) {
+        for(int i=0;i<100000;i++){
+            System.out.println("just log");
+            // bad comment
+        }
         accountService.getAccountsByUserId(userId);
         accountService.getAccountsByUserId(userId);
         accountService.getAccountsByUserId(userId);

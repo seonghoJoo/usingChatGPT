@@ -6,8 +6,9 @@ import re
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # Get the list of changed files
-output = subprocess.check_output(["git", "diff", "--name-only", "HEAD^", "HEAD"]).decode("utf-8")
-if not output:
+try:
+    output = subprocess.check_output(["git", "diff", "--name-only", "HEAD^", "HEAD"]).decode("utf-8")
+except subprocess.CalledProcessError:
     output = subprocess.check_output(["git", "show", "--pretty=format:", "--name-only", "HEAD"]).decode("utf-8")
 
 file_paths = output.split("\n")
