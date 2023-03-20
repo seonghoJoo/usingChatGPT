@@ -84,6 +84,7 @@ public class AccountService {
 
 
 
+
         validateDeleteAccount(accountUser, account);
 
         account.setAccountStatus(AccountStatus.UNREGISTERED);
