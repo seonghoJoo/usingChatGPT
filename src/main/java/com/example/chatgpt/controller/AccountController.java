@@ -17,6 +17,7 @@ import java.util.stream.Collectors;
 public class AccountController {
     private final AccountService accountService;
 
+
     @PostMapping("/account")
     public CreateAccount.Response createAccount(
             @RequestBody @Valid CreateAccount.Request request
