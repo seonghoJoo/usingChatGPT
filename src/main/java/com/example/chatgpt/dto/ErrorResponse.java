@@ -11,4 +11,5 @@ import lombok.*;
 public class ErrorResponse {
     private ErrorCode errorCode;
     private String errorMessage;
+
 }
