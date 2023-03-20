@@ -34,7 +34,18 @@ public class AccountController {
     public DeleteAccount.Response deleteAccount(
             @RequestBody @Valid DeleteAccount.Request request
     ) {
-
+        accountService.deleteAccount(
+                request.getUserId(),
+                request.getAccountNumber()
+        );
+        accountService.deleteAccount(
+                request.getUserId(),
+                request.getAccountNumber()
+        );
+        accountService.deleteAccount(
+                request.getUserId(),
+                request.getAccountNumber()
+        );
         return DeleteAccount.Response.from(
                 accountService.deleteAccount(
                         request.getUserId(),
@@ -48,9 +59,6 @@ public class AccountController {
             @RequestParam("user_id") Long userId
     ) {
 
-        accountService.getAccountsByUserId(userId);
-        accountService.getAccountsByUserId(userId);
-        accountService.getAccountsByUserId(userId);
         return accountService.getAccountsByUserId(userId)
                 .stream().map(accountDto ->
                         AccountInfo.builder()

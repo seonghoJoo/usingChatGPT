@@ -3,7 +3,7 @@ name: ChatGPT Code Review
 on:
   push:
     branches:
-      - main
+      - master
       - your-other-branch # Add other branches if needed
 
 jobs:
