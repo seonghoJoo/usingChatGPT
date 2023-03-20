@@ -18,6 +18,7 @@ import java.time.LocalDateTime;
 @Entity
 public class Account extends BaseEntity {
 
+
     @ManyToOne
     private AccountUser accountUser;
 
