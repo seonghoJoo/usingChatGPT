@@ -1,6 +1,10 @@
 # usingChatGPT
 이 프로젝트는 ChatGPT를 활용하여 코드 푸시 시 자동으로 코드 리뷰를 받을 수 있는 기능을 구현한 깃헙 액션입니다. 자바 코드에 대한 리뷰를 제공하며, 코드 품질, 모범 사례, 가독성 및 유지 관리 관점에서 평가해 줍니다.
 
+## 프롬프트
+### ChatGPT에게 명령을 다음과 같이 명령을 내려줍니다.
+```Please review the following Java code:\n{code}\n, focusing on code quality, best practices, readability, and maintainability. Provide specific suggestions for improvement, including any potential optimizations, refactoring opportunities, or areas where I could improve the code's design and structure. Additionally, please point out any possible bugs or performance issues that you notice.```
+
 ## 사용법
 본인의 깃헙 리포지토리에 .github/workflows 폴더를 생성하고, code_review.yml 파일을 추가합니다. 아래 내용을 그대로 복사 붙여넣기 해도 됩니다.
 ### ```.github/workflows/code_review.yml```
