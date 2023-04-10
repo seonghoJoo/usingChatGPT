@@ -3,7 +3,7 @@
 
 ## 사용법
 본인의 깃헙 리포지토리에 .github/workflows 폴더를 생성하고, code_review.yml 파일을 추가합니다. 아래 내용을 그대로 복사 붙여넣기 해도 됩니다.
-```yaml```
+### ```.github/workflows/code_review.yml```
 ```
 name: Code Review
 
@@ -41,3 +41,4 @@ jobs:
 ```
         
 리포지토리에 code_review.py 파일을 생성하고 아래 코드를 복사 붙여넣기 합니다.
+### python
