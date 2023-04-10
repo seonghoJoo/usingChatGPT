@@ -38,6 +38,6 @@ jobs:
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: python code_review.py
-        ```
+```
         
 리포지토리에 code_review.py 파일을 생성하고 아래 코드를 복사 붙여넣기 합니다.
